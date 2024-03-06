@@ -5,6 +5,7 @@ import page_objects.*;
 import test_base.BaseTest;
 
 import static org.testng.AssertJUnit.assertTrue;
+import static utilities.RandomDataGenerator.*;
 
 public class CreateNewInsurancePolicyWithSEPADirectDebit extends BaseTest {
 
@@ -51,9 +52,12 @@ public class CreateNewInsurancePolicyWithSEPADirectDebit extends BaseTest {
 
         //Fill the details in Customer Page
         CustomerContainerPage customerContainerPage = new CustomerContainerPage(driver);
-        assertTrue("unable to enter text in 'First name' field", customerContainerPage.sendKeysToFirstNameTextBox("Test"));
-        assertTrue("unable to enter text in 'Last name' field", customerContainerPage.sendKeysToLastNameTextBox("User"));
-        assertTrue("unable to enter text in 'E-Mail' field", customerContainerPage.sendKeysToEMailTextBox("test@user.com"));
+        String firstName = randomFirstName();
+        assertTrue("unable to enter text in 'First name' field", customerContainerPage.sendKeysToFirstNameTextBox(firstName));
+        String lastName = randomLastName();
+        assertTrue("unable to enter text in 'Last name' field", customerContainerPage.sendKeysToLastNameTextBox(lastName));
+        String randomEmail = randomEmail();
+        assertTrue("unable to enter text in 'E-Mail' field", customerContainerPage.sendKeysToEMailTextBox(randomEmail));
         assertTrue("unable to enter text in 'Street' field", customerContainerPage.sendKeysToStreetTextBox("PP"));
         assertTrue("unable to enter text in 'House number' field", customerContainerPage.sendKeysToHouseNumberTextBox("10"));
         assertTrue("unable to enter text in 'Postal code' field", customerContainerPage.sendKeysToPostalCodeTextBox("12345"));
@@ -77,8 +81,8 @@ public class CreateNewInsurancePolicyWithSEPADirectDebit extends BaseTest {
 
         //Fill the SEPA Direct Debit details in Payment Details Page
         PaymentDetailsPage paymentDetailsPage = new PaymentDetailsPage(driver);
-        paymentDetailsPage.sendKeysToAccountOwnerTextBox("ABC");
-        paymentDetailsPage.sendKeysToEmailTextBox("test@test.com");
+        paymentDetailsPage.sendKeysToAccountOwnerTextBox(firstName + " " + lastName);
+        paymentDetailsPage.sendKeysToEmailTextBox(randomEmail);
         String directDebit = p.getProperty("directDebitDetails");
         paymentDetailsPage.sendKeysToIBANPlaceholder(directDebit);
         paymentDetailsPage.clickConfirmSEPADirectDebitMandateCheckbox();
