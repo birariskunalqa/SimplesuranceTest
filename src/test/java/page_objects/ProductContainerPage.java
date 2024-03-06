@@ -9,7 +9,6 @@ public class ProductContainerPage extends BasePage {
     }
 
     private final By COUNTRY_DROPDOWN = By.id("country-select");
-    private final By COUNTRY_GERMANY = By.xpath("//li[@data-value='DE']//span[text()='Germany']");
     private final By PRODUCT_NAME_DROPDOWN = By.id("product-name-select");
     private final By PRODUCT_NAME_VALUE = By.xpath("//li[@data-value='Nokia_v1Allianz_global' and text()='Nokia_v1Allianz_global']");
     private final By TARIFF_DROPDOWN = By.xpath("//div[@id='tariff-name-select']");
@@ -23,19 +22,27 @@ public class ProductContainerPage extends BasePage {
     private final By CLASS_DROPDOWN = By.xpath("//div[@id='class-name-select']");
     private final By CLASS_DROPDOWN_VALUE = By.xpath("//li[@data-value='PDCODE677395' and text()='Nokia 3/500 - EUR 500.00']");
     private final By SERIAL_NUMBER_TEXT_BOX = By.id("input-createCertificate_serialNumber");
-    private final By NEXT_BUTTON = By.xpath("//button[@type=\"button\"]//span[normalize-space()='Next']");
+    private final By NEXT_BUTTON = By.xpath("//button[@type='button']//span[normalize-space()='Next']");
+
+    private By getSelector_givenCountryNameOption(String countryName){
+        return By.xpath("//li[@data-value='DE']//span[text()='" + countryName + "']");
+    }
+    private By getSelector_givenProductNameOption(String productName){
+        return By.xpath("//li[@data-value='Nokia_v1Allianz_global' and text()='" + productName +"']");
+    }
 
     public boolean clickCountryDropdown(){
         return clickElement(COUNTRY_DROPDOWN);
     }
-    public boolean selectCountryGermany(){
-        return clickElement(COUNTRY_GERMANY);
+
+    public boolean selectGivenCountry(String countryName){
+        return clickElement(getSelector_givenCountryNameOption(countryName));
     }
     public boolean clickProductNameDropdown(){
         return clickElement(PRODUCT_NAME_DROPDOWN);
     }
-    public boolean selectNokiav1Allianzglobal(){
-        return clickElement(PRODUCT_NAME_VALUE);
+    public boolean selectGivenProductNameOption(String productName){
+        return clickElement(getSelector_givenProductNameOption(productName));
     }
     public boolean clickTariffDropdown(){
         return clickElement(TARIFF_DROPDOWN);

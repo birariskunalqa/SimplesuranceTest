@@ -2,12 +2,7 @@ package test_cases;
 
 import org.testng.annotations.Test;
 import page_objects.*;
-import page_objects.ConfirmationContainerPage;
-import page_objects.CustomerContainerPage;
 import page_objects.ProductContainerPage;
-import page_objects.InsuranceDetailsPage;
-import page_objects.PaymentDetailsPage;
-import page_objects.PaymentProcedurePage;
 import test_base.BaseTest;
 
 import static org.testng.AssertJUnit.assertTrue;
@@ -36,9 +31,11 @@ public class CreateNewInsurancePolicy extends BaseTest{
         //Fill the details in Product Page
         ProductContainerPage productContainerPage = new ProductContainerPage(driver);
         assertTrue("unable to click on 'Country' dropdown", productContainerPage.clickCountryDropdown());
-        assertTrue("unable to select 'Germany' option in 'Country' dropdown", productContainerPage.selectCountryGermany());
+        String countryName = "Germany";
+        assertTrue("unable to select 'Germany' option in 'Country' dropdown", productContainerPage.selectGivenCountry(countryName));
         assertTrue("unable to click on 'Product Name' dropdown", productContainerPage.clickProductNameDropdown());
-        assertTrue("unable to select 'Nokia_v1Allianz_global' option in 'Product Name' dropdown", productContainerPage.selectNokiav1Allianzglobal());
+        String productName = "Nokia_v1Allianz_global";
+        assertTrue("unable to select 'Nokia_v1Allianz_global' option in 'Product Name' dropdown", productContainerPage.selectGivenProductNameOption(productName));
         assertTrue("unable to click on 'Tariff' dropdown", productContainerPage.clickTariffDropdown());
         assertTrue("unable to select '1-34-Nokia_v1Allianz_global-D-EUR-v1-Accidental_damag' option in 'Tariff' dropdown", productContainerPage.selectTariffValue());
         assertTrue("unable to click on 'Insurance category' dropdown", productContainerPage.clickInsuranceCategoryDropDown());
