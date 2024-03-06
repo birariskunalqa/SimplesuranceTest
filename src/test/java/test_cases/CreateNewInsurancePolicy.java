@@ -36,19 +36,19 @@ public class CreateNewInsurancePolicy extends BaseTest{
         //Fill the details in Product Page
         ProductContainerPage productContainerPage = new ProductContainerPage(driver);
         assertTrue("unable to click on 'Country' dropdown", productContainerPage.clickCountryDropdown());
-        assertTrue("unable to click on 'Germany' option in 'Country' dropdown", productContainerPage.clickCountryGermany());
+        assertTrue("unable to select 'Germany' option in 'Country' dropdown", productContainerPage.selectCountryGermany());
         assertTrue("unable to click on 'Product Name' dropdown", productContainerPage.clickProductNameDropdown());
-        assertTrue("unable to click on 'Nokia_v1Allianz_global' option in 'Product Name' dropdown", productContainerPage.clickNokiav1Allianzglobal());
+        assertTrue("unable to select 'Nokia_v1Allianz_global' option in 'Product Name' dropdown", productContainerPage.selectNokiav1Allianzglobal());
         assertTrue("unable to click on 'Tariff' dropdown", productContainerPage.clickTariffDropdown());
-        assertTrue("unable to click on '1-34-Nokia_v1Allianz_global-D-EUR-v1-Accidental_damag' option in 'Tariff' dropdown", productContainerPage.clickTariffValue());
+        assertTrue("unable to select '1-34-Nokia_v1Allianz_global-D-EUR-v1-Accidental_damag' option in 'Tariff' dropdown", productContainerPage.selectTariffValue());
         assertTrue("unable to click on 'Insurance category' dropdown", productContainerPage.clickInsuranceCategoryDropDown());
-        assertTrue("unable to click on 'CATEGORY_SMARTPHONE' option in 'Insurance category' dropdown", productContainerPage.clickInsuranceCategoryValue());
+        assertTrue("unable to select 'CATEGORY_SMARTPHONE' option in 'Insurance category' dropdown", productContainerPage.selectInsuranceCategoryValue());
         assertTrue("unable to click on 'Period' dropdown", productContainerPage.clickPeriodDropdown());
-        assertTrue("unable to click on '12 month(s)' option in 'Period' dropdown", productContainerPage.clickPeriodValue());
+        assertTrue("unable to select '12 month(s)' option in 'Period' dropdown", productContainerPage.selectPeriodValue());
         assertTrue("unable to click on 'Payment type' dropdown", productContainerPage.clickPaymentTypeDropdown());
-        assertTrue("unable to click on 'One-time' option in 'Payment type' dropdown", productContainerPage.clickPaymentTypeValue());
+        assertTrue("unable to select 'One-time' option in 'Payment type' dropdown", productContainerPage.selectPaymentTypeValue());
         assertTrue("unable to click on 'Class' dropdown", productContainerPage.clickClassDropdown());
-        assertTrue("unable to click on 'Nokia 3/500 - EUR 500.00' option in 'Class' dropdown", productContainerPage.clickClassDropdownValue());
+        assertTrue("unable to select 'Nokia 3/500 - EUR 500.00' option in 'Class' dropdown", productContainerPage.selectClassDropdownValue());
         String serialNumber = "1234567890";
         assertTrue("unable to enter text in 'Serial number' field", productContainerPage.sendKeysToSerialNumberTextBox(serialNumber));
         assertTrue("unable to click on 'NEXT' button", productContainerPage.clickNextButton());

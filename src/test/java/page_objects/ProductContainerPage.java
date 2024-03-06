@@ -2,7 +2,6 @@ package page_objects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import page_objects.BasePage;
 
 public class ProductContainerPage extends BasePage {
     public ProductContainerPage(WebDriver driver) {
@@ -29,43 +28,43 @@ public class ProductContainerPage extends BasePage {
     public boolean clickCountryDropdown(){
         return clickElement(COUNTRY_DROPDOWN);
     }
-    public boolean clickCountryGermany(){
+    public boolean selectCountryGermany(){
         return clickElement(COUNTRY_GERMANY);
     }
     public boolean clickProductNameDropdown(){
         return clickElement(PRODUCT_NAME_DROPDOWN);
     }
-    public boolean clickNokiav1Allianzglobal(){
+    public boolean selectNokiav1Allianzglobal(){
         return clickElement(PRODUCT_NAME_VALUE);
     }
     public boolean clickTariffDropdown(){
         return clickElement(TARIFF_DROPDOWN);
     }
-    public boolean clickTariffValue(){
+    public boolean selectTariffValue(){
         return clickElement(TARIFF_VALUE);
     }
     public boolean clickInsuranceCategoryDropDown(){
         return clickElement(INSURANCE_CATEGORY_DROPDOWN);
     }
-    public boolean clickInsuranceCategoryValue(){
+    public boolean selectInsuranceCategoryValue(){
         return clickElement(INSURANCE_CATEGORY_VALUE);
     }
     public boolean clickPeriodDropdown(){
         return clickElement(PERIOD_DROPDOWN);
     }
-    public boolean clickPeriodValue(){
+    public boolean selectPeriodValue(){
         return clickElement(PERIOD_VALUE);
     }
     public boolean clickPaymentTypeDropdown(){
         return clickElement(PAYMENT_TYPE_DROPDOWN);
     }
-    public boolean clickPaymentTypeValue(){
+    public boolean selectPaymentTypeValue(){
         return clickElement(PAYMENT_TYPE_VALUE);
     }
     public boolean clickClassDropdown(){
         return clickElement(CLASS_DROPDOWN);
     }
-    public boolean clickClassDropdownValue(){
+    public boolean selectClassDropdownValue(){
         return clickElement(CLASS_DROPDOWN_VALUE);
     }
     public boolean sendKeysToSerialNumberTextBox(String serialNumber){
