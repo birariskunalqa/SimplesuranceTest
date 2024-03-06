@@ -2,15 +2,14 @@ package test_cases;
 
 import org.testng.annotations.Test;
 import page_objects.*;
-import page_objects.ProductContainerPage;
 import test_base.BaseTest;
 
 import static org.testng.AssertJUnit.assertTrue;
 
-public class CreateNewInsurancePolicyWithCreditCard extends BaseTest{
+public class CreateNewInsurancePolicyWithSEPADirectDebit extends BaseTest {
 
     @Test
-    public void verifyCreateNewInsurancePolicyWithCreditCardByFillingAllMandatoryData(){
+    public void verifyCreateNewInsurancePolicyWithSEPADirectDebitByFillingAllMandatoryData() {
 
         //Login
         LoginPage loginPage = new LoginPage(driver);
@@ -26,7 +25,7 @@ public class CreateNewInsurancePolicyWithCreditCard extends BaseTest{
 
         //click on New link to create New Insurance Policy
         HomePage homePage = new HomePage(driver);
-        assertTrue("unable to click on 'NEW' link",homePage.clickNewLink());
+        assertTrue("unable to click on 'NEW' link", homePage.clickNewLink());
 
         //Fill the details in Product Page
         ProductContainerPage productContainerPage = new ProductContainerPage(driver);
@@ -73,17 +72,16 @@ public class CreateNewInsurancePolicyWithCreditCard extends BaseTest{
 
         //Fill the details in Payment Procedure Page
         PaymentProcedurePage paymentProcedurePage = new PaymentProcedurePage(driver);
-        assertTrue("unable to click on paying with Credit card/debit card icon", paymentProcedurePage.clickPayingWithCreditCardDebitCardIcon());
+        assertTrue("unable to click on paying with Credit card/debit card icon", paymentProcedurePage.clickPayingWithDirectDebitRadioButton());
         assertTrue("unable to click on 'CONTINUE TO PAYMENT' button", paymentProcedurePage.clickContinueToPaymentButton());
 
-        //Fill the Credit Card details in Payment Details Page
+        //Fill the SEPA Direct Debit details in Payment Details Page
         PaymentDetailsPage paymentDetailsPage = new PaymentDetailsPage(driver);
-        String cardNumber = p.getProperty("creditCardNumber");
-        assertTrue("unable to enter text in 'Card Number' placeholder", paymentDetailsPage.sendKeysToCardNumberPlaceholder(cardNumber));
-        String expirationDate = "0125";
-        assertTrue("unable to enter text in 'Expiration Date' placeholder", paymentDetailsPage.sendKeysToExpirationDatePlaceholder(expirationDate));
-        String cardCVS = "123";
-        assertTrue("unable to enter text in 'Card CVC' placeholder", paymentDetailsPage.sendKeysToCardCVCPlaceholder(cardCVS));
+        paymentDetailsPage.sendKeysToAccountOwnerTextBox("ABC");
+        paymentDetailsPage.sendKeysToEmailTextBox("test@test.com");
+        String directDebit = p.getProperty("directDebitDetails");
+        paymentDetailsPage.sendKeysToIBANPlaceholder(directDebit);
+        paymentDetailsPage.clickConfirmSEPADirectDebitMandateCheckbox();
         assertTrue("unable to click on 'ORDER FOR FEE' button", paymentDetailsPage.clickOrderForAFeeButton());
 
         //Verify newly created Insurance Policy with Status -> Created
