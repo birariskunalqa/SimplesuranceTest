@@ -7,7 +7,7 @@ import test_base.BaseTest;
 
 import static org.testng.AssertJUnit.assertTrue;
 
-public class CreateNewInsurancePolicy extends BaseTest{
+public class CreateNewInsurancePolicyWithCreditCard extends BaseTest{
 
     @Test
     public void verifyCreateNewInsurancePolicyByFillingAllMandatoryData(){
