@@ -10,7 +10,7 @@ import static org.testng.AssertJUnit.assertTrue;
 public class CreateNewInsurancePolicyWithCreditCard extends BaseTest{
 
     @Test
-    public void verifyCreateNewInsurancePolicyByFillingAllMandatoryData(){
+    public void verifyCreateNewInsurancePolicyWithCreditCardByFillingAllMandatoryData(){
 
         //Login
         LoginPage loginPage = new LoginPage(driver);
@@ -78,7 +78,7 @@ public class CreateNewInsurancePolicyWithCreditCard extends BaseTest{
 
         //Fill the details in Payment Details Page
         PaymentDetailsPage paymentDetailsPage = new PaymentDetailsPage(driver);
-        String cardNumber = "4242424242424242";
+        String cardNumber = p.getProperty("creditCardNumber");
         assertTrue("unable to enter text in 'Card Number' placeholder", paymentDetailsPage.sendKeysToCardNumberPlaceholder(cardNumber));
         String expirationDate = "0125";
         assertTrue("unable to enter text in 'Expiration Date' placeholder", paymentDetailsPage.sendKeysToExpirationDatePlaceholder(expirationDate));
